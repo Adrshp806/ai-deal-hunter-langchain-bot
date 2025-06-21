@@ -1,8 +1,8 @@
 import streamlit as st
 from langchain_openai import ChatOpenAI
 
-api_key = st.secrets["OPENAI_API_KEY"]
-base_url = st.secrets["OPENAI_API_BASE"]
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+openai_api_base = st.secrets["OPENAI_API_BASE"]
 
 def generate_email(product, current_price, target_price):
     prompt = f"""
@@ -14,8 +14,8 @@ def generate_email(product, current_price, target_price):
     """
 
     chat = ChatOpenAI(
-        api_key=api_key,
-        base_url=base_url,
+        openai_api_key=openai_api_key,
+        openai_api_base=openai_api_base,
         model_name="mistralai/Mixtral-8x7B-Instruct-v0.1",
         temperature=0.7
     )
